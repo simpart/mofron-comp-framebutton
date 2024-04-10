@@ -40,13 +40,19 @@ module.exports = class extends Frame {
         try {
 	    super.initDomConts();
             this.size('1rem','0.5rem');
+	    this.style({
+                'display':         'flex',
+                'align-items':     'center',
+                'justify-content': 'center'
+	    });
             
             /* text config */
             this.text().config({
                 size: '0.25rem',
                 style: {
                     'text-align': 'center',
-                    'margin-top': '0.1rem'
+                    'margin-top': '0.1rem',
+		    'height':     '100%'
                 }
             });
 	    this.child(this.text());
@@ -66,18 +72,6 @@ module.exports = class extends Frame {
 	    }
 	    this.event(new Click(clk_evt));
             
-/*
-<Frame style="margin-top:0.1rem;" effect=HrzPos size=(70%,0.6rem)>
-        <event:Link url="./view/index.html"></event:Link>
-        <Text size="0.35rem">
-            <style>
-                text-align: center;
-                margin-top: 0.1rem;
-            </style>
-            <text>でんしゃのずかん</text>
-        </Text>
-    </Frame>
-*/
         } catch (e) {
             console.error(e.stack);
             throw e;
