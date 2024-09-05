@@ -104,6 +104,15 @@ module.exports = class extends Frame {
         }
     }
 
+    clickEvent (fnc,prm) {
+        try {
+            return this.pressEvent(fnc,prm);
+	} catch (e) {
+            console.error(e.stack);
+            throw e;
+        }
+    }
+
     pressEvent (fnc, prm) {
         try {
 	    if (undefined === fnc) {
